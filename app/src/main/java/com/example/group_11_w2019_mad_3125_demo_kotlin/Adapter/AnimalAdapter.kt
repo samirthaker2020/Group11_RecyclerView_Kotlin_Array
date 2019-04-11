@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.group_11_w2019_mad_3125_demo_kotlin.R
 import kotlinx.android.synthetic.main.animal_list_item.view.*
 
@@ -15,9 +16,12 @@ class AnimalAdapter(val items : ArrayList<String>, val context: Context) : Recyc
     }
     // Binds each animal in the ArrayList to a view
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0?.tvAnimalType?.text = items.get(p1)
+        p0.tvAnimalType.text = items.get(p1)
 
-
+p0.itemView.setOnClickListener()
+{
+    Toast.makeText(context,items.get(p1).toString(),Toast.LENGTH_LONG).show()
+}
      }
 
     // Gets the number of animals in the list
@@ -34,7 +38,7 @@ class AnimalAdapter(val items : ArrayList<String>, val context: Context) : Recyc
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each animal to
-        val tvAnimalType = view.tv_animal_type
+        val tvAnimalType =  view.tv_animal_type
 
 
 }
